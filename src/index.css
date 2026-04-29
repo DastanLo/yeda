@@ -1,0 +1,152 @@
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #000;
+    border-radius: 4px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+video {
+    width: 100%;
+    min-height: 562px;
+    display: block;
+    cursor: pointer;
+}
+
+.player-ui {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.timeline-bar {
+    display: flex;
+    height: 4px;
+    gap: 4px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.timeline-segment {
+    position: relative;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+    flex-grow: 1;
+}
+
+.fill {
+    height: 100%;
+    width: 0;
+    background-color: #ffffff;
+}
+
+.chapter-tooltip {
+    position: absolute;
+    bottom: 85px;
+    transform: translateX(-50%);
+    min-width: 160px;
+    padding: 12px;
+    background-color: rgba(18, 18, 18, 0.95);
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    pointer-events: none;
+    max-width: 200px;
+    white-space: wrap;
+}
+
+.tooltip-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.tooltip-time {
+    font-size: 11px;
+    color: #999;
+}
+
+.controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls-left,
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ui-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #fff;
+    transition: opacity 0.2s ease;
+}
+
+.ui-icon:hover {
+    opacity: 0.8;
+}
+
+.time-text {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.volume-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.volume-slider {
+    width: 70px;
+    height: 4px;
+    cursor: pointer;
+    accent-color: #ffffff;
+}
+
+.quality-menu {
+    position: relative;
+}
+
+.quality-dropdown {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+    background-color: #222;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.quality-dropdown button {
+    width: 80px;
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.quality-dropdown button:hover {
+    background-color: #444;
+}
