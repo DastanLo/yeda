@@ -16,14 +16,13 @@ const VideoPlayer = ({ data }) => {
     const hlsRef = useRef(null);
 
     const [isPlaying, setIsPlaying] = useState(false);
-    const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(1);
     const [isMuted, setIsMuted] = useState(false);
     const [levels, setLevels] = useState([]);
     const [showQuality, setShowQuality] = useState(false);
 
     const { currentTime, hoverInfo, handleTimeUpdate, handleMouseMove, handleClick, clearHover } =
-        useTimeline(videoRef, duration, data.chapters);
+        useTimeline(videoRef, data.videoLength, data.chapters);
 
     const togglePlay = () => {
         const video = videoRef.current;
@@ -67,7 +66,6 @@ const VideoPlayer = ({ data }) => {
         <div className="video-container" ref={containerRef}>
             <video
                 ref={videoRef}
-                onLoadedMetadata={() => setDuration(videoRef.current.duration)}
                 onTimeUpdate={handleTimeUpdate}
                 onClick={togglePlay}
             />
@@ -88,7 +86,7 @@ const VideoPlayer = ({ data }) => {
                 >
                     {data.chapters.map((ch, i) => (
                         <div key={i} className="timeline-segment"
-                             style={{ width: `${((ch.end - ch.start) / duration) * 100}%` }}>
+                             style={{ width: `${((ch.end - ch.start) / data.videoLength) * 100}%` }}>
                             <div className="fill" style={{
                                 width: `${Math.min(100, Math.max(0,
                                     ((currentTime - ch.start) / (ch.end - ch.start)) * 100
@@ -116,7 +114,7 @@ const VideoPlayer = ({ data }) => {
                         </div>
 
                         <span className="time-text">
-                            {formatTime(currentTime)} / {duration ? formatTime(duration) : '--:--'}
+                            {formatTime(currentTime)} / {formatTime(data.videoLength)}
                         </span>
                     </div>
 

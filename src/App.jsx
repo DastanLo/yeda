@@ -2,6 +2,7 @@ import VideoPlayer from './components/VideoPlayer';
 
 const videoData = {
     hlsPlaylistUrl: 'https://vz-50e60d70-540.b-cdn.net/b87ac5f4-2cf0-42d1-acc8-32a89d3c71c7/playlist.m3u8',
+    videoLength: 348,
     chapters: [
         { title: "Introduction & Course Overview", start: 0, end: 14 },
         { title: "Curiosity's Role in Critical & Creative Thinking", start: 15, end: 57 },
