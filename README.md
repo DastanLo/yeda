@@ -3,6 +3,7 @@ React Video Player (Vite + HLS)
 🚀 Run locally
 
 yarn
+
 yarn dev
 
 Open: http://localhost:5173
